@@ -1,22 +1,23 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Employee from "./components/Employee";
 
 function App() {
+    console.log("we are about to list the employees");
+    const showEmployees = true;
     return (
         <div className="App">
-            <header className="App-header">
-                <Employee />
-                <p>Hello hahaha</p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </a>
-            </header>
+            {showEmployees ? (
+                <>
+                    {" "}
+                    <Employee name="Jojo" role="Intern" />
+                    <Employee name="Power" role="Intern" />
+                    <Employee name="Makima" role="SeniorDev" />
+                    <Employee name="Denji" />
+                    <Employee role="Intern" />
+                </>
+            ) : (
+                <h3>No employees</h3>
+            )}
         </div>
     );
 }
