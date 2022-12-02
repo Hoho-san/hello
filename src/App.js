@@ -21,6 +21,9 @@ function App() {
                     <Employee name="Makima" role="SeniorDev" />
                     <Employee name="Denji" role={role} />
                     <Employee role="Intern" />
+                    <h1 className="text-3xl font-bold underline">
+                        Hello world!
+                    </h1>
                 </>
             ) : (
                 <h3>No employees</h3>
