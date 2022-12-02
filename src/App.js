@@ -16,12 +16,57 @@ function App() {
                             setRole(e.target.value);
                         }}
                     ></input>
-                    <Employee name="Jojo" role="Intern" />
-                    <Employee name="Power" role="Intern" />
-                    <Employee name="Makima" role="SeniorDev" />
-                    <Employee name="Denji" role={role} />
-                    <Employee role="Intern" />
-                    <h1 className="text-3xl font-bold underline">
+                    <div class="flex flex-wrap justify-center mt-8">
+                        <Employee
+                            name="Jojo"
+                            role="Intern"
+                            img="https://www.mohenesh.com/wp-content/uploads/2021/11/Doge-meme-2.webp"
+                        />
+                        <Employee
+                            name="Power"
+                            role="Intern"
+                            img="https://www.mohenesh.com/wp-content/uploads/2021/11/Doge-meme-2.webp"
+                        />
+                        <Employee
+                            name="Makima"
+                            role="SeniorDev"
+                            img="https://www.mohenesh.com/wp-content/uploads/2021/11/Doge-meme-2.webp"
+                        />
+                        <Employee
+                            name="Denji"
+                            role={role}
+                            img="https://www.mohenesh.com/wp-content/uploads/2021/11/Doge-meme-2.webp"
+                        />
+                        <Employee
+                            role="Intern"
+                            img="https://www.mohenesh.com/wp-content/uploads/2021/11/Doge-meme-2.webp"
+                        />
+                        <Employee
+                            name="Jojo"
+                            role="Intern"
+                            img="https://www.mohenesh.com/wp-content/uploads/2021/11/Doge-meme-2.webp"
+                        />
+                        <Employee
+                            name="Power"
+                            role="Intern"
+                            img="https://www.mohenesh.com/wp-content/uploads/2021/11/Doge-meme-2.webp"
+                        />
+                        <Employee
+                            name="Makima"
+                            role="SeniorDev"
+                            img="https://www.mohenesh.com/wp-content/uploads/2021/11/Doge-meme-2.webp"
+                        />
+                        <Employee
+                            name="Denji"
+                            role={role}
+                            img="https://www.mohenesh.com/wp-content/uploads/2021/11/Doge-meme-2.webp"
+                        />
+                        <Employee
+                            role="Intern"
+                            img="https://www.mohenesh.com/wp-content/uploads/2021/11/Doge-meme-2.webp"
+                        />
+                    </div>
+                    <h1 className="border-gray-900 text-3xl font-bold underline italic ... ">
                         Hello world!
                     </h1>
                 </>
