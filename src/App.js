@@ -2,6 +2,7 @@ import "./App.css";
 import Employee from "./components/Employee";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import AddEmployee from "./components/AddEmployee";
 
 function App() {
     const [role, setRole] = useState("Junior Dev");
@@ -42,22 +43,26 @@ function App() {
             role: "Intern",
             img: "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg",
         },
-        {
-            id: 7,
-            name: "Conan",
-            role: "Intern",
-            img: "https://images.pexels.com/photos/2128807/pexels-photo-2128807.jpeg",
-        },
     ]);
 
     function updateEmployee(id, newName, newRole) {
         console.log("Update Employee inside of app.js");
         const updatedEmployees = employees.map((employee) => {
-            if (id == employee.id) {
+            if (id === employee.id) {
                 return { ...employee, name: newName, role: newRole };
             } else return employee;
         });
         setEmployees(updatedEmployees);
+    }
+
+    function newEmployee(name, role, img) {
+        const newEmployee = {
+            id: uuidv4(),
+            name: name,
+            role: role,
+            img: img,
+        };
+        setEmployees([...employees, newEmployee]);
     }
 
     const showEmployees = true;
@@ -88,7 +93,11 @@ function App() {
                             );
                         })}
                     </div>
-                    <h1 className="border-gray-900 text-3xl font-bold underline italic ... ">
+                    <div className="place-content-center">
+                        <AddEmployee newEmployee={newEmployee} />
+                    </div>
+
+                    <h1 className="place-content-center border-gray-900 text-3xl font-bold underline italic ... ">
                         Hello world!
                     </h1>
                 </>
