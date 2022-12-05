@@ -4,6 +4,7 @@ import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import AddEmployee from "./components/AddEmployee";
 import EditEmployee from "./components/EditEmployee";
+import Header from "./components/Header";
 
 function App() {
     const [role, setRole] = useState("Junior Dev");
@@ -68,17 +69,11 @@ function App() {
 
     const showEmployees = true;
     return (
-        <div className="App">
+        <div className="App bg-gray-300 min-h-screen">
+            <Header />
             {showEmployees ? (
                 <>
-                    <input
-                        type="text"
-                        onChange={(e) => {
-                            console.log(e.target.value);
-                            setRole(e.target.value);
-                        }}
-                    ></input>
-                    <div className="flex flex-wrap justify-center mt-8">
+                    <div className="flex flex-wrap justify-center mt-8 my-3">
                         {employees.map((employee) => {
                             console.log(employee);
                             console.log(uuidv4());
@@ -102,13 +97,13 @@ function App() {
                             );
                         })}
                     </div>
-                    <div className="place-content-center">
+                    <div>
                         <AddEmployee newEmployee={newEmployee} />
                     </div>
 
-                    <h1 className="place-content-center border-gray-900 text-3xl font-bold underline italic ... ">
+                    {/* <h1 className="place-content-center border-gray-900 text-3xl font-bold underline italic ... ">
                         Hello world!
-                    </h1>
+                    </h1> */}
                 </>
             ) : (
                 <h3>No employees</h3>
