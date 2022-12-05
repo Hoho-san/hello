@@ -7,41 +7,59 @@ function App() {
     const [role, setRole] = useState("Junior Dev");
     const [employees, setEmployees] = useState([
         {
+            id: 1,
             name: "Jojo",
             role: "Intern",
             img: "https://www.mohenesh.com/wp-content/uploads/2021/11/Doge-meme-2.webp",
         },
         {
+            id: 2,
             name: "Power",
             role: "Intern",
             img: "https://images.pexels.com/photos/2530775/pexels-photo-2530775.jpeg",
         },
         {
+            id: 3,
             name: "Makima",
             role: "Intern",
             img: "https://images.pexels.com/photos/1933873/pexels-photo-1933873.jpeg",
         },
         {
+            id: 4,
             name: "Denji",
             role: "Intern",
             img: "https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg",
         },
         {
+            id: 5,
             name: "Gojo",
             role: "Intern",
             img: "https://images.pexels.com/photos/4890733/pexels-photo-4890733.jpeg",
         },
         {
+            id: 6,
             name: "Tanjiro",
             role: "Intern",
             img: "https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg",
         },
         {
+            id: 7,
             name: "Conan",
             role: "Intern",
             img: "https://images.pexels.com/photos/2128807/pexels-photo-2128807.jpeg",
         },
     ]);
+
+    function updateEmployee(id, newName, newRole) {
+        console.log("Update Employee inside of app.js");
+        const updatedEmployees = employees.map((employee) => {
+            if (id == employee.id) {
+                return { ...employee, name: newName, role: newRole };
+            } else return employee;
+        });
+        setEmployees(updatedEmployees);
+    }
+
     const showEmployees = true;
     return (
         <div className="App">
@@ -60,10 +78,12 @@ function App() {
                             console.log(uuidv4());
                             return (
                                 <Employee
-                                    key={uuidv4()}
+                                    key={employee.id}
+                                    id={employee.id}
                                     name={employee.name}
                                     role={employee.role}
                                     img={employee.img}
+                                    updateEmployee={updateEmployee}
                                 />
                             );
                         })}
