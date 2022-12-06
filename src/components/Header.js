@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 const navigation = [
     { name: "Employees", href: "/employees" },
     { name: "Cutomers", href: "/customers" },
-    { name: "Projects", href: "/Projects" },
+    { name: "Dictionary", href: "/dictionary" },
     { name: "Calendar", href: "/Calendar" },
 ];
 
@@ -109,8 +109,6 @@ export default function Header(props) {
                                 ))}
                             </div>
                         </Disclosure.Panel>
-
-                        <footer>Example</footer>
                     </>
                 )}
             </Disclosure>
