@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import { useState, useEffect } from "react";
 
 export default function Definition() {
@@ -14,14 +15,16 @@ export default function Definition() {
     return (
         <>
             <h1>Here is definition:</h1>
-            {word.map((meaning) => {
-                return (
-                    <p>
-                        {meaning.partOfSpeech} :{" "}
-                        {meaning.definitions[0].definition}
-                    </p>
-                );
-            })}
+            {word
+                ? word.map((meaning) => {
+                      return (
+                          <p key={uuidv4()}>
+                              {meaning.partOfSpeech} {": "}
+                              {meaning.definitions[0].definition}
+                          </p>
+                      );
+                  })
+                : null}
         </>
     );
 }
