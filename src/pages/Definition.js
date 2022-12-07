@@ -18,7 +18,7 @@ export default function Definition() {
     }, []);
     return (
         <>
-            <h1>Here is definition:</h1>
+            <h1>Definition: {search}</h1>
             {word
                 ? word.map((meaning) => {
                       return (
