@@ -1,17 +1,9 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 export default function Dictionary() {
     const [word, setWord] = useState("");
-    const [word2, setWord2] = useState("");
-    useEffect(() => {
-        console.log("State Updated " + word);
-    }, [word]);
-    useEffect(() => {
-        console.log("State Updated " + word2);
-    }, [word2]);
-
-    // no dependancy array --> update for any change
-    // empty dependancy array --> execute once
-    // passing in data --> only execute when those variables are changed
+    const navigate = useNavigate();
 
     return (
         <>
@@ -21,14 +13,13 @@ export default function Dictionary() {
                     setWord(e.target.value);
                 }}
             />
-            <h2>Lets get the definition of {word}</h2>
-            <input
-                type="text"
-                onChange={(e) => {
-                    setWord2(e.target.value);
+            <button
+                onClick={() => {
+                    navigate("/definition/" + word);
                 }}
-            />
-            <h2>Lets get the definition of {word2}</h2>
+            >
+                Search
+            </button>
         </>
     );
 }
