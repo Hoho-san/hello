@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import NotFound from "../components/NotFound";
+import DefinitionSearch from "../components/DefinitionSearch";
 
 export default function Definition() {
     // ✅ State is initialized to an empty array
@@ -13,8 +14,8 @@ export default function Definition() {
 
     useEffect(() => {
         // const url = "https://jsdbfkjsdgfuisdjkcvbwuiagfjbdvjvgbaliwg";
-        const url = "https://httpstat.us/500";
-        //      const url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + search;
+        // const url = "https://httpstat.us/500";
+        const url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + search;
         fetch(url)
             .then((response) => {
                 console.log(response.status);
@@ -68,6 +69,8 @@ export default function Definition() {
                             </p>
                         );
                     })}
+                    <p>Search Again</p>
+                    <DefinitionSearch />
                 </>
             ) : null}
         </>

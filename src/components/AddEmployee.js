@@ -122,7 +122,7 @@ function AddEmployee(props) {
                     <button
                         className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
                         form="editmodal"
-                        onClick={handleClose}
+                        onClick={handleShow}
                     >
                         + Add
                     </button>
