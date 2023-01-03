@@ -1,15 +1,24 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import NotFound from "../components/NotFound";
+import { baseUrl } from "../shared";
 
 export default function Customer() {
   const { id } = useParams();
   const [customer, setCustomer] = useState();
+  const navigate = useNavigate();
+  const [notFound, setNotFound] = useState();
 
   useEffect(() => {
     console.log("UseEffect here");
-    const url = "http://localhost:8000/api/customers/" + id;
+    const url = baseUrl + "/api/customers/" + id;
     fetch(url)
       .then((response) => {
+        if (response.status === 404) {
+          // redirect to 404 page
+          setNotFound(true);
+          // render a 404 component on this page
+        }
         return response.json();
       })
       .then((data) => {
@@ -19,6 +28,7 @@ export default function Customer() {
 
   return (
     <>
+      {notFound ? <NotFound /> : null}
       {customer ? (
         <div>
           <p>{customer.id}</p>
@@ -26,6 +36,7 @@ export default function Customer() {
           <p>{customer.industry}</p>
         </div>
       ) : null}
+      <Link to="/customers">Back</Link>
     </>
   );
 }
