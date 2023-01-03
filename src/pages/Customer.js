@@ -1,4 +1,4 @@
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import NotFound from "../components/NotFound";
 import { baseUrl } from "../shared";
@@ -6,7 +6,6 @@ import { baseUrl } from "../shared";
 export default function Customer() {
   const { id } = useParams();
   const [customer, setCustomer] = useState();
-  const navigate = useNavigate();
   const [notFound, setNotFound] = useState();
 
   useEffect(() => {
