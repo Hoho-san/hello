@@ -15,18 +15,18 @@ export default function Customers() {
   }, []);
   return (
     <>
-      <h1>Here are our cutomers:</h1>
-      {customers
-        ? customers.map((customer) => {
-            return (
-              <ul>
-                <li>
+      <h1>Here are our cutomers:</h1>{" "}
+      <ul>
+        {customers
+          ? customers.map((customer) => {
+              return (
+                <li key={customer.id}>
                   <Link to={"/customers/" + customer.id}> {customer.name}</Link>
                 </li>
-              </ul>
-            );
-          })
-        : null}{" "}
+              );
+            })
+          : null}{" "}
+      </ul>
     </>
   );
 }

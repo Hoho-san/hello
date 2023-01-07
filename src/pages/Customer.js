@@ -1,15 +1,15 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import NotFound from "../components/NotFound";
 import { baseUrl } from "../shared";
 
 export default function Customer() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [customer, setCustomer] = useState();
   const [notFound, setNotFound] = useState();
 
   useEffect(() => {
-    console.log("UseEffect here");
     const url = baseUrl + "/api/customers/" + id;
     fetch(url)
       .then((response) => {
@@ -35,6 +35,29 @@ export default function Customer() {
           <p>{customer.industry}</p>
         </div>
       ) : null}
+      <button
+        className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-3 rounded"
+        onClick={(e) => {
+          const url = baseUrl + "api/customers/" + id;
+          fetch(url, {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Something went wrong");
+              }
+              // assume things goes well
+              navigate("/customers");
+            })
+            .catch((e) => {
+              console.log(e);
+            });
+        }}
+      >
+        Delete
+      </button>
+      <br />
       <Link to="/customers">Back</Link>
     </>
   );
